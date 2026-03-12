@@ -45,5 +45,61 @@ public abstract class Book implements Lendable {
         return currentOwner;
     }
 
+    public void lend() {
+        this.status = false;
+    }
 
+
+    public void returnItem() {
+        this.status       = true;
+        this.currentOwner = null;
+    }
+    public abstract String getCategory();
+
+    public double getPrice()        { return price; }
+
+    @Override
+    public void updateStatus(boolean status){this.status= status;}
+    @Override
+    public boolean isAvailable()    { return status; }
+
+
+    @Override
+    public void display() {
+
+        String statusText = status ? "Kütüphanede (Rafta)" : "Ödünç Verildi → " + currentOwner;
+
+        System.out.println("\n---  KİTAp Display ---");
+        System.out.println("🏷  Kategori : " + getCategory().toUpperCase());
+        System.out.println("  Barkod   : #" + bookID);
+        System.out.println("  Eser Adı : " + name);
+        System.out.println(" Yazar    : " + author);
+        System.out.println("  Fiyat    : " + String.format("%.2f TL", price));
+        System.out.println("  Baskı    : " + edition + ". Baskı");
+        System.out.println(" Alınma   : " + dateOfPurchase);
+        System.out.println( " Durum    : " + statusText);
+        System.out.println("----------------------------");
+    }
+
+
+
+
+
+    // Getters , Setters
+    public String  getBookID()          { return bookID; }
+    public String  getName()            { return name; }
+    public String  getEdition()         { return edition; }
+    public String  getDateOfPurchase()  { return dateOfPurchase; }
+
+    public void setAuthor(String a)     { this.author = a; }
+    public void setName(String n)       { this.name   = n; }
+    public void setPrice(double p)      { this.price  = p; }
+    public void setEdition(String e)    { this.edition = e; }
+    public void setDateOfPurchase(String d) { this.dateOfPurchase = d; }
+
+    @Override
+    public String toString() {
+        return String.format("Book [ID: %s, İsim: %s, Durum: %s]",
+                bookID, name, status ? "Rafta" : "Ödünç verilmiş");
+    }
 }
