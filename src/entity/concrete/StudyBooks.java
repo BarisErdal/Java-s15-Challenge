@@ -7,11 +7,14 @@ public class StudyBooks extends Book {
     private  String subject;
     private String gradeLevel;
 
-    public StudyBooks(String bookID, String dateOfPurchase, boolean status, String edition, double price, String name, String author, String subject, String gradeLevel) {
-        super(bookID, dateOfPurchase, status, edition, price, name, author);
-        this.subject = subject;
+    public StudyBooks(String bookID, String author, String name, double price,
+                      String edition, String dateOfPurchase,
+                      String subject, String gradeLevel) {
+        super(bookID, author, name, price, edition, dateOfPurchase);
+        this.subject    = subject;
         this.gradeLevel = gradeLevel;
     }
+
 
     @Override
     public String getCategory() {

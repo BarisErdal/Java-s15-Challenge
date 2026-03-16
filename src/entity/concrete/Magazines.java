@@ -25,7 +25,7 @@ public class Magazines extends Book {
         super.display();
         System.out.printf("     Ay/Yıl   : %-30s %n", monthYear);
         System.out.printf("     Tür      : %-30s %n", genre);
-        System.out.println("  -----------------------------")
+        System.out.println("  -----------------------------");
     }
 
 
