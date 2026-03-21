@@ -9,9 +9,11 @@ public class Faculty extends Reader {
     private String staffID;
     private String facultyName;
 
-    public Faculty(String name, List<Book> books, member_Record memberRecord, String memberID, String type, String dateOfMembership, String address, String phoneNo, String staffID, String facultyName) {
-        super(name, books, memberRecord, memberID, "Faculty", dateOfMembership, address, phoneNo);
-        this.staffID = staffID;
+    public Faculty(String name, String memberID, String dateOfMembership,
+                   String address, String phoneNo,
+                   String staffID, String facultyName) {
+        super(name, memberID, "Faculty", dateOfMembership, address, phoneNo);
+        this.staffID     = staffID;
         this.facultyName = facultyName;
     }
 

@@ -8,10 +8,12 @@ public class Journals extends Book {
     private String publisher;
 
 
-    public Journals(String bookID, String dateOfPurchase, boolean status, String edition, double price, String name, String author, String issueNumber, String publisher) {
-        super(bookID, dateOfPurchase, status, edition, price, name, author);
-        this.issueNumber = issueNumber;
-        this.publisher = publisher;
+    public Journals(String bookID, String author, String name, double price,
+                    String edition, String dateOfPurchase,
+                    String issueNumber, String publishingHouse) {
+        super(bookID, author, name, price, edition, dateOfPurchase);
+        this.issueNumber     = issueNumber;
+        this.publisher = publishingHouse;
     }
 
     @Override

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/entity/concrete/Author.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/Faculty.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/Journals.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/Librarian.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/Library.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/Magazines.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/member_Record.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/Reader.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/Student.java;D:/Backend/s15/Java-s15-Challenge/src/entity/concrete/StudyBooks.java;D:/Backend/s15/Java-s15-Challenge/src/entity/interfaces/Lendable.java;D:/Backend/s15/Java-s15-Challenge/src/entity/Book.java;D:/Backend/s15/Java-s15-Challenge/src/entity/Person.java;D:/Backend/s15/Java-s15-Challenge/src/Main.java;D:/Backend/s15/Java-s15-Challenge/README.md" />
+  </component>
+</project>

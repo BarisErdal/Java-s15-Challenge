@@ -11,10 +11,11 @@ public class Reader extends Person {
     private List<Book> books= new ArrayList<>();
     private member_Record memberRecord;
 
-    public Reader(String name, List<Book> books, member_Record memberRecord , String memberID, String type,
+    public Reader(String name, String memberID, String type,
                   String dateOfMembership, String address, String phoneNo) {
         super(name);
-        this.books = books;
+        this.books        = new ArrayList<>();
+        // Composition
         this.memberRecord = new member_Record(memberID, type, dateOfMembership,
                 name, address, phoneNo);
     }

@@ -14,15 +14,16 @@ public abstract class Book implements Lendable {
     private String dateOfPurchase;
     private String currentOwner;
 
-    public Book(String bookID, String dateOfPurchase, boolean status, String edition, double price, String name, String author) {
-        this.bookID = bookID;
-        this.currentOwner = null;
+    public Book(String bookID, String author, String name, double price,
+                String edition, String dateOfPurchase) {
+        this.bookID         = bookID;
+        this.author         = author;
+        this.name           = name;
+        this.price          = price;
+        this.status         = true;     // yeni kitap rafta
+        this.edition        = edition;
         this.dateOfPurchase = dateOfPurchase;
-        this.status = true;
-        this.edition = edition;
-        this.price = price;
-        this.name = name;
-        this.author = author;
+        this.currentOwner   = null;
     }
 
 

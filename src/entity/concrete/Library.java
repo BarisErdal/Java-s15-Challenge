@@ -38,7 +38,7 @@ public class Library {
         this.loanMap            = new HashMap<>();
         this.transactionHistory = new ArrayList<>();
 
-       // loadSampleData();
+        loadSampleData();
     }
 
 
@@ -414,7 +414,7 @@ public class Library {
     // =========================================================
     // ORNEK VERI YUKLEME
     // =========================================================
-    /*private void loadSampleData() {
+    private void loadSampleData() {
         System.out.println("[SISTEM] Ornek veriler yukleniyor...");
 
         // --- Kitaplar ---
@@ -473,5 +473,5 @@ public class Library {
         addReader(uye3);
 
         System.out.println("[SISTEM] Veriler yuklendi.\n");
-    }*/
+    }
 }

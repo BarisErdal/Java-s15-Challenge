@@ -9,9 +9,11 @@ public class Student extends Reader {
     private String studentNo;
     private String department;
 
-    public Student(String name, List<Book> books, member_Record memberRecord, String memberID, String type, String dateOfMembership, String address, String phoneNo, String studentNo, String department) {
-        super(name, books, memberRecord, memberID, "Student", dateOfMembership, address, phoneNo);
-        this.studentNo = studentNo;
+    public Student(String name, String memberID, String dateOfMembership,
+                   String address, String phoneNo,
+                   String studentNo, String department) {
+        super(name, memberID, "Student", dateOfMembership, address, phoneNo);
+        this.studentNo  = studentNo;
         this.department = department;
     }
 
