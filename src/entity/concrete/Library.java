@@ -10,26 +10,23 @@ import java.util.Map;
 
 public class Library {
 
-    // --- Kutuphanenin temel bilgileri ---
+
     private String    libraryName;
     private Librarian librarian;
 
-    // --- Kitaplari saklayan map: kitap ID'si → Kitap nesnesi ---
+
     private Map<String, Book> bookMap;
 
-    // --- Uyeleri saklayan map: uye ID'si → Reader nesnesi ---
+
     private Map<String, Reader> readerMap;
 
-    // --- Hangi kitap kimde: kitap ID'si → uye ID'si ---
+    //  Hangi kitap kimde
     private Map<String, String> loanMap;
 
-    // --- Islem gecmisi listesi ---
     private List<String> transactionHistory;
 
 
-    // =========================================================
-    // CONSTRUCTOR
-    // =========================================================
+
     public Library(String libraryName, Librarian librarian) {
         this.libraryName        = libraryName;
         this.librarian          = librarian;
@@ -42,21 +39,19 @@ public class Library {
     }
 
 
-    // =========================================================
-    // KITAP EKLEME
-    // =========================================================
+
     public boolean newBook(Book book) {
 
-        // Ayni ID'den zaten var mi kontrol et
+
         if (bookMap.containsKey(book.getBookID())) {
             System.out.println("Bu ID zaten kayitli: " + book.getBookID());
             return false;
         }
 
-        // Map'e ekle
+
         bookMap.put(book.getBookID(), book);
 
-        // Gecmise kaydet
+
         transactionHistory.add("[EKLEME] " + book.getTitle());
 
         System.out.println("Kitap eklendi: " + book.getTitle());
@@ -64,18 +59,15 @@ public class Library {
     }
 
 
-    // =========================================================
-    // KITAP SILME
-    // =========================================================
+
     public boolean removeBook(String bookID) {
 
-        // Kitap var mi kontrol et
+
         if (!bookMap.containsKey(bookID)) {
             System.out.println("Kitap bulunamadi: " + bookID);
             return false;
         }
 
-        // Once kitabi bul, sonra map'ten sil
         Book book = bookMap.get(bookID);
         bookMap.remove(bookID);
 
@@ -84,13 +76,11 @@ public class Library {
     }
 
 
-    // =========================================================
-    // KITAP GUNCELLEME
-    // =========================================================
+
     public boolean updateBook(String bookID, String yeniAd, String yeniYazar,
                               double yeniFiyat, String yeniBaski) {
 
-        // Kitap var mi kontrol et
+
         if (!bookMap.containsKey(bookID)) {
             System.out.println("Kitap bulunamadi: " + bookID);
             return false;
@@ -120,17 +110,13 @@ public class Library {
     }
 
 
-    // =========================================================
-    // KITAP ARAMA — ID ile
-    // =========================================================
+
     public Book findBookByID(String bookID) {
         return bookMap.get(bookID);  // yoksa null doner
     }
 
 
-    // =========================================================
-    // KITAP ARAMA — Isim ile
-    // =========================================================
+
     public List<Book> findBookByName(String arananIsim) {
 
         List<Book> sonuclar = new ArrayList<>();
@@ -388,7 +374,7 @@ public class Library {
     public Map<String, String> getLoanMap() { return loanMap; }
 
     // ConsoleUI icin gereken ek getterlar
-    public List<String> getHistory() { return transactionHistory; }
+   /* public List<String> getHistory() { return transactionHistory; }
 
     public List<String> getCategories() {
         List<String> kategoriler = new ArrayList<>();
@@ -408,14 +394,14 @@ public class Library {
             }
         }
         return yazarlar;
-    }
+    }*/
 
 
     // =========================================================
     // ORNEK VERI YUKLEME
     // =========================================================
     private void loadSampleData() {
-        System.out.println("[SISTEM] Ornek veriler yukleniyor...");
+        System.out.println(" Ornek veriler yukleniyor...");
 
         // --- Kitaplar ---
         StudyBooks kitap1 = new StudyBooks(
@@ -472,6 +458,6 @@ public class Library {
                 "20241002", "Elektrik-Elektronik Muh.");
         addReader(uye3);
 
-        System.out.println("[SISTEM] Veriler yuklendi.\n");
+        System.out.println("Veriler yuklendi.\n");
     }
 }
