@@ -1,4 +1,4 @@
-
+package entity.concrete;
 
 import entity.Book;
 
@@ -13,16 +13,10 @@ public class Library {
 
     private String    libraryName;
     private Librarian librarian;
-
-
     private Map<String, Book> bookMap;
-
-
     private Map<String, Reader> readerMap;
-
     //  Hangi kitap kimde
     private Map<String, String> loanMap;
-
     private List<String> transactionHistory;
 
 
@@ -35,7 +29,7 @@ public class Library {
         this.loanMap            = new HashMap<>();
         this.transactionHistory = new ArrayList<>();
 
-        loadSampleData();
+
     }
 
 
@@ -112,7 +106,7 @@ public class Library {
 
 
     public Book findBookByID(String bookID) {
-        return bookMap.get(bookID);  // yoksa null doner
+        return bookMap.get(bookID);
     }
 
 
@@ -121,10 +115,10 @@ public class Library {
 
         List<Book> sonuclar = new ArrayList<>();
 
-        // Tum kitaplara tek tek bak
+
         for (Book book : bookMap.values()) {
 
-            // Kucuk harfe cevirerek karsilastir
+
             String kitapAdi = book.getName().toLowerCase();
             String aranan   = arananIsim.toLowerCase();
 
@@ -137,9 +131,7 @@ public class Library {
     }
 
 
-    // =========================================================
-    // KITAP ARAMA — Yazara gore
-    // =========================================================
+
     public List<Book> findBookByAuthor(String yazar) {
 
         List<Book> sonuclar = new ArrayList<>();
@@ -154,9 +146,7 @@ public class Library {
     }
 
 
-    // =========================================================
-    // KITAP ARAMA — Kategoriye gore
-    // =========================================================
+
     public List<Book> findBookByCategory(String kategori) {
 
         List<Book> sonuclar = new ArrayList<>();
@@ -171,9 +161,7 @@ public class Library {
     }
 
 
-    // =========================================================
-    // TUM KITAPLARI LISTELE
-    // =========================================================
+
     public void showBook() {
 
         if (bookMap.isEmpty()) {
@@ -184,14 +172,12 @@ public class Library {
         System.out.println("=== TUM KITAPLAR ===");
 
         for (Book book : bookMap.values()) {
-            System.out.println(book);   // Book'un toString() metodu calisir
+            System.out.println(book);
         }
     }
 
 
-    // =========================================================
-    // ODUNC VERME
-    // =========================================================
+
     public boolean lendBook(String memberID, String bookID) {
 
         // Uyeyi bul
@@ -223,26 +209,24 @@ public class Library {
     }
 
 
-    // =========================================================
-    // IADE ALMA
-    // =========================================================
+
     public boolean takeBackBook(String memberID, String bookID) {
 
-        // Uyeyi bul
+
         Reader reader = readerMap.get(memberID);
         if (reader == null) {
             System.out.println("Uye bulunamadi: " + memberID);
             return false;
         }
 
-        // Kitabi bul
+
         Book book = bookMap.get(bookID);
         if (book == null) {
             System.out.println("Kitap bulunamadi: " + bookID);
             return false;
         }
 
-        // Bu kitap gercekten bu uyede mi kayitli?
+
         String kitabiAlanUyeID = loanMap.get(bookID);
 
         if (kitabiAlanUyeID == null) {
@@ -255,14 +239,13 @@ public class Library {
             return false;
         }
 
-        // Kutuphaneciyi kullanarak iade al
+
         boolean basarili = librarian.returnBook(reader, book);
 
         if (basarili) {
-            // Loan map'ten sil
+
             loanMap.remove(bookID);
 
-            // Gecmise yaz
             transactionHistory.add("[IADE] " + reader.getName() + " -> " + book.getTitle());
         }
 
@@ -270,9 +253,7 @@ public class Library {
     }
 
 
-    // =========================================================
-    // UYE EKLEME
-    // =========================================================
+
     public boolean addReader(Reader reader) {
 
         String memberID = reader.getMemberRecord().getMemberID();
@@ -289,17 +270,13 @@ public class Library {
     }
 
 
-    // =========================================================
-    // UYE BULMA
-    // =========================================================
+
     public Reader getReader(String memberID) {
         return readerMap.get(memberID);  // yoksa null doner
     }
 
 
-    // =========================================================
-    // TUM UYELERI GETIR
-    // =========================================================
+
     public List<Reader> getAllReaders() {
         List<Reader> liste = new ArrayList<>();
 
@@ -311,9 +288,8 @@ public class Library {
     }
 
 
-    // =========================================================
-    // TUM KITAPLARI GETIR
-    // =========================================================
+
+
     public List<Book> getBooks() {
         List<Book> liste = new ArrayList<>();
 
@@ -325,9 +301,9 @@ public class Library {
     }
 
 
-    // =========================================================
+
     // ISLEM GECMISI
-    // =========================================================
+
     public void printHistory() {
 
         if (transactionHistory.isEmpty()) {
@@ -343,9 +319,9 @@ public class Library {
     }
 
 
-    // =========================================================
+
     // AKTIF ODUNCLER
-    // =========================================================
+
     public void printActiveLoans() {
 
         if (loanMap.isEmpty()) {
@@ -366,98 +342,16 @@ public class Library {
     }
 
 
-    // =========================================================
-    // YARDIMCI GETTERLAR
-    // =========================================================
+
+    // GETTERLAR
+
     public String    getName()      { return libraryName; }
     public Librarian getLibrarian() { return librarian; }
     public Map<String, String> getLoanMap() { return loanMap; }
 
-    // ConsoleUI icin gereken ek getterlar
-   /* public List<String> getHistory() { return transactionHistory; }
-
-    public List<String> getCategories() {
-        List<String> kategoriler = new ArrayList<>();
-        for (Book book : bookMap.values()) {
-            if (!kategoriler.contains(book.getCategory())) {
-                kategoriler.add(book.getCategory());
-            }
-        }
-        return kategoriler;
-    }
-
-    public List<String> getAuthors() {
-        List<String> yazarlar = new ArrayList<>();
-        for (Book book : bookMap.values()) {
-            if (!yazarlar.contains(book.getAuthor())) {
-                yazarlar.add(book.getAuthor());
-            }
-        }
-        return yazarlar;
-    }*/
 
 
-    // =========================================================
-    // ORNEK VERI YUKLEME
-    // =========================================================
-    private void loadSampleData() {
-        System.out.println(" Ornek veriler yukleniyor...");
 
-        // --- Kitaplar ---
-        StudyBooks kitap1 = new StudyBooks(
-                "B001", "Yilmaz Ozturk",
-                "Java ile Nesne Yonelimli Programlama",
-                85.0, "3.Baski", "2022-01-10",
-                "Yazilim Muhendisligi", "Universite");
-        newBook(kitap1);
 
-        StudyBooks kitap2 = new StudyBooks(
-                "B002", "Ali Kaya",
-                "Veri Yapilari ve Algoritmalar",
-                70.0, "2.Baski", "2021-05-20",
-                "Bilgisayar Bilimi", "Lisans");
-        newBook(kitap2);
 
-        Journals kitap3 = new Journals(
-                "B003", "Ahmet Demir",
-                "TUBITAK Bilisim Dergisi",
-                30.0, "Aylik", "2023-03-01",
-                "42", "TUBITAK Yayinlari");
-        newBook(kitap3);
-
-        Magazines kitap4 = new Magazines(
-                "B004", "Editor Ekibi",
-                "National Geographic Turkiye",
-                25.0, "Aylik", "2024-02-01",
-                "Subat 2024", "Doga & Bilim");
-        newBook(kitap4);
-
-        StudyBooks kitap5 = new StudyBooks(
-                "B005", "Fatma Celik",
-                "Algoritma Tasarimi",
-                90.0, "1.Baski", "2020-09-15",
-                "Yazilim Muhendisligi", "Yuksek Lisans");
-        newBook(kitap5);
-
-        // --- Uyeler ---
-        Student uye1 = new Student(
-                "Mehmet Yilmaz", "M001", "2023-09-01",
-                "Kizilay, Ankara", "5551112233",
-                "20231001", "Bilgisayar Muh.");
-        addReader(uye1);
-
-        Faculty uye2 = new Faculty(
-                "Dr. Zeynep Arslan", "M002", "2020-01-15",
-                "Kadikoy, Istanbul", "5559998877",
-                "FAC001", "Muhendislik Fakultesi");
-        addReader(uye2);
-
-        Student uye3 = new Student(
-                "Ayse Kara", "M003", "2024-02-10",
-                "Konak, Izmir", "5554445566",
-                "20241002", "Elektrik-Elektronik Muh.");
-        addReader(uye3);
-
-        System.out.println("Veriler yuklendi.\n");
-    }
 }

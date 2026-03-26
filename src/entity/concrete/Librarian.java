@@ -67,7 +67,7 @@ public class Librarian {
 
 
 
-    public boolean authenticate(String pwd) { return this.password.equals(pwd); }
+    public boolean authenticate(String password) { return this.password.equals(password); }
 
     public String getName() {
         return name;

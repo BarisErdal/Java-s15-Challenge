@@ -20,7 +20,7 @@ public abstract class Book implements Lendable {
         this.author         = author;
         this.name           = name;
         this.price          = price;
-        this.status         = true;     // yeni kitap rafta
+        this.status         = true;
         this.edition        = edition;
         this.dateOfPurchase = dateOfPurchase;
         this.currentOwner   = null;
@@ -70,7 +70,7 @@ public abstract class Book implements Lendable {
 
         String statusText = status ? "Kütüphanede (Rafta)" : "Ödünç Verildi → " + currentOwner;
 
-        System.out.println("\n---  KİTAp Display ---");
+        System.out.println("\n---  KİTAP Display ---");
         System.out.println("🏷  Kategori : " + getCategory().toUpperCase());
         System.out.println("  Barkod   : #" + bookID);
         System.out.println("  Eser Adı : " + name);
