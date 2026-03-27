@@ -36,7 +36,7 @@ public class Librarian {
 
 
     public boolean returnBook(Reader reader, Book book) {
-        boolean ok = reader.returnBook(book);
+        boolean ok = reader.retur nBook(book);
         if (ok) {
             System.out.println(" Kütüphaneci [" + name + "] kitabı teslim aldı.");
             createBill(reader.getMemberRecord(), book, "İADE");

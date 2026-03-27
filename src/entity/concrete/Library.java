@@ -187,7 +187,7 @@ public class Library {
             return false;
         }
 
-        // Kitabi bul
+
         Book book = bookMap.get(bookID);
         if (book == null) {
             System.out.println("Kitap bulunamadi: " + bookID);
@@ -201,7 +201,7 @@ public class Library {
             // Hangi kitap kimde map'ine kaydet
             loanMap.put(bookID, memberID);
 
-            // Gecmise yaz
+
             transactionHistory.add("[ODUNC] " + reader.getName() + " -> " + book.getTitle());
         }
 
@@ -258,7 +258,7 @@ public class Library {
 
         String memberID = reader.getMemberRecord().getMemberID();
 
-        // Ayni ID'den zaten var mi?
+
         if (readerMap.containsKey(memberID)) {
             System.out.println("Uye zaten kayitli: " + memberID);
             return false;
@@ -302,7 +302,7 @@ public class Library {
 
 
 
-    // ISLEM GECMISI
+
 
     public void printHistory() {
 
@@ -329,7 +329,7 @@ public class Library {
             return;
         }
 
-        System.out.println("=== AKTIF ODUNCLER ===");
+        System.out.println("AKTIF ODUNCLER");
 
         for (String bookID : loanMap.keySet()) {
             String memberID = loanMap.get(bookID);

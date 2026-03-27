@@ -22,11 +22,21 @@ public class Faculty extends Reader {
         return "Öğretim Görevlisi — " + facultyName + " (" + staffID + ")";
     }
 
+
+    // getter setter
     public String getStaffID() {
         return staffID;
     }
 
     public String getFacultyName() {
         return facultyName;
+    }
+
+    public void setStaffID(String staffID) {
+        this.staffID = staffID;
+    }
+
+    public void setFacultyName(String facultyName) {
+        this.facultyName = facultyName;
     }
 }

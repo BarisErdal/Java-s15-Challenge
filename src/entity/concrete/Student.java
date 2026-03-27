@@ -22,7 +22,7 @@ public class Student extends Reader {
         return "Öğrenci — " + department + " (" + studentNo + ")";
     }
 
-    //getters---------------------------------
+    //getters--setters-------------------------------
 
 
     public String getStudentNo() {
@@ -31,5 +31,13 @@ public class Student extends Reader {
 
     public String getDepartment() {
         return department;
+    }
+
+    public void setStudentNo(String studentNo) {
+        this.studentNo = studentNo;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }

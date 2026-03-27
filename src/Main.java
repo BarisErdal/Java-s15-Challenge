@@ -34,7 +34,9 @@ public class Main {
                 "FAC001", "Muhendislik Fakultesi");
 
         uye2.borrowBook(kitap1);
+        uye2.borrowBook(kitap4);
 
+//uye2.returnBook(kitap1);
 
         System.out.println(uye2.getBooks());
 
